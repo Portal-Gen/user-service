@@ -2,12 +2,6 @@
 
 The User Profile Service is a microservice that handles user profile management and user preferences for a travel application. It provides APIs for creating, retrieving, updating, and deleting user profiles, as well as managing user preferences for different place types.
 
-## Repository
-
-The source code for the User Profile Service can be found in the following repository:
-
-[https://github.com/your-username/user-profile-service](https://github.com/your-username/user-profile-service)
-
 ## Prerequisites
 
 Before running the User Profile Service, ensure that you have the following installed:
