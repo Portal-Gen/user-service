@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    container_name: user-service-db
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: portalgen_user
+      MYSQL_USER: mysql
+      MYSQL_PASSWORD: mysql
+    volumes:
+      - db_data:/var/lib/mysql
+  service:
+    container_name: user-service
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: portalgen_user
+      DB_USER: mysql
+      DB_PASSWORD: mysql
+    depends_on:
+      - db
+volumes:
+  db_data:
