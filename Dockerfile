@@ -15,9 +15,7 @@ RUN mvn package -Dmaven.test.skip
 FROM amazoncorretto:21-alpine-jdk
 
 # Set environment variables
-ARG DB_HOST
-ARG DB_PORT
-ARG DB_NAME
+ARG DB_URL
 ARG DB_USER
 ARG DB_PASSWORD
 

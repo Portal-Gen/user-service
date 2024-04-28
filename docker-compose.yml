@@ -16,9 +16,7 @@ services:
   service:
     build: .
     environment:
-      DB_HOST: db
-      DB_PORT: 3306
-      DB_NAME: portalgen_user
+      DB_URL: jdbc:mysql://db:3306/portalgen_user
       DB_USER: mysql
       DB_PASSWORD: mysql
     deploy:
