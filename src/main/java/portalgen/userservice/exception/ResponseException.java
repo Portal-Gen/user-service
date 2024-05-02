@@ -8,7 +8,7 @@ public class ResponseException extends RuntimeException {
     }
 
     public ResponseException(ResponseError error, String message) {
-        super(error.getMessage() + ": " + message);
+        super(message);
         this.error = error;
     }
 

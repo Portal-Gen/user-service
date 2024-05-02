@@ -3,12 +3,6 @@ package portalgen.userservice.model.request;
 import lombok.Data;
 
 @Data
-public class UpdateUserProfileRequest {
+public class UpdateUserProfileRequest extends UserProfileRequest {
     private Long id;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private String profilePicture;
-    private String bio;
-    private String location;
 }

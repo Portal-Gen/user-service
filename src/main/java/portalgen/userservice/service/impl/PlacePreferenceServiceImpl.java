@@ -11,7 +11,9 @@ import portalgen.userservice.model.request.PlacePreferenceRequest;
 import portalgen.userservice.model.response.PlacePreferenceResponse;
 import portalgen.userservice.repository.PlacePreferenceRepository;
 import portalgen.userservice.repository.UserProfileRepository;
+import portalgen.userservice.service.PlacePreferenceRepoService;
 import portalgen.userservice.service.PlacePreferenceService;
+import portalgen.userservice.service.UserProfileRepoService;
 
 import java.util.HashMap;
 import java.util.List;
@@ -20,19 +22,19 @@ import java.util.stream.Collectors;
 
 @Service
 public class PlacePreferenceServiceImpl implements PlacePreferenceService {
-    private final UserProfileRepository userProfileRepository;
-    private final PlacePreferenceRepository placePreferenceRepository;
+    private final UserProfileRepoService userProfileRepoService;
+    private final PlacePreferenceRepoService placePreferenceRepoService;
 
     @Autowired
-    public PlacePreferenceServiceImpl(UserProfileRepository userProfileRepository,
-                                      PlacePreferenceRepository placePreferenceRepository) {
-        this.userProfileRepository = userProfileRepository;
-        this.placePreferenceRepository = placePreferenceRepository;
+    public PlacePreferenceServiceImpl(UserProfileRepoService userProfileRepoService,
+                                      PlacePreferenceRepoService placePreferenceRepoService) {
+        this.userProfileRepoService = userProfileRepoService;
+        this.placePreferenceRepoService = placePreferenceRepoService;
     }
 
     @Override
     public PlacePreferenceResponse setDefaultPlacePreference(Long userProfileId) {
-        UserProfileEntity userProfileEntity = userProfileRepository.findById(userProfileId).orElseThrow(() -> new ResponseException(BadRequestError.USER_PROFILE_NOT_FOUND));
+        UserProfileEntity userProfileEntity = userProfileRepoService.findByUserId(userProfileId);
 
         List<PlacePreferenceEntity> existingPlacePreferences = placePreferenceRepository.findByUserProfileEntity(userProfileEntity);
 
@@ -63,7 +65,7 @@ public class PlacePreferenceServiceImpl implements PlacePreferenceService {
 
     @Override
     public PlacePreferenceResponse getPlacePreference(Long userProfileId) {
-        UserProfileEntity userProfile = userProfileRepository.findById(userProfileId).orElseThrow(() -> new ResponseException(BadRequestError.USER_PROFILE_NOT_FOUND));
+        UserProfileEntity userProfile = userProfileRepoService.findById(userProfileId).orElseThrow(() -> new ResponseException(BadRequestError.USER_PROFILE_NOT_FOUND));
 
         List<PlacePreferenceEntity> placePreferences = placePreferenceRepository.findByUserProfileEntity(userProfile);
 
@@ -79,7 +81,7 @@ public class PlacePreferenceServiceImpl implements PlacePreferenceService {
 
     @Override
     public PlacePreferenceResponse updatePlacePreference(PlacePreferenceRequest request) {
-        UserProfileEntity userProfile = userProfileRepository.findById(request.getUserProfileId()).orElseThrow(() -> new ResponseException(BadRequestError.USER_PROFILE_NOT_FOUND));
+        UserProfileEntity userProfile = userProfileRepoService.findById(request.getUserProfileId()).orElseThrow(() -> new ResponseException(BadRequestError.USER_PROFILE_NOT_FOUND));
 
         List<PlacePreferenceEntity> placePreferences = placePreferenceRepository.findByUserProfileEntity(userProfile);
 
