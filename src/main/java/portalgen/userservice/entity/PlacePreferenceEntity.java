@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Data;
 import portalgen.userservice.model.enums.PlaceType;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "user_place_preference")
 @Data
@@ -19,3 +22,4 @@ public class PlacePreferenceEntity {
     @Column(name = "preference_value")
     private Float preferenceValue;
 }
+

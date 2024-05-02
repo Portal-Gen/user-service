@@ -17,6 +17,7 @@ public enum BadRequestError implements ResponseError {
     USER_LAST_NAME_CANNOT_BE_BLANK(106, "User last name cannot be blank"),
     USER_EMAIL_INVALID(107, "User email is invalid"),
     USER_EMAIL_CANNOT_BE_UPDATED(108, "User email cannot be updated"),
+    USER_PROFILE_PLACE_PREFERENCE_NOT_FOUND(109, "User profile place preference not found"),
     ;
 
 

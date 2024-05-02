@@ -11,4 +11,5 @@ import java.util.List;
 public interface PlacePreferenceRepository extends JpaRepository<PlacePreferenceEntity, Long> {
     List<PlacePreferenceEntity> findByUserProfileEntity(UserProfileEntity userProfileEntity);
 
+    boolean existsByUserProfileEntity(UserProfileEntity userProfileEntity);
 }

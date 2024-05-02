@@ -10,9 +10,9 @@ import java.util.List;
 public interface PlacePreferenceRepoService {
     List<PlacePreferenceEntity> saveAll(List<PlacePreferenceEntity> placePreferences);
 
-    List<PlacePreferenceEntity> findByUserProfileEntity(UserProfileEntity userProfileEntity);
+    List<PlacePreferenceEntity> findPlacePreferenceListByUserEntity(UserProfileEntity userProfileEntity);
 
-    boolean existsByUserProfileIdAndPreferenceKey(Long userProfileId, String preferenceKey);
+    boolean existsByUserProfile(UserProfileEntity userProfileEntity);
 
 
 }

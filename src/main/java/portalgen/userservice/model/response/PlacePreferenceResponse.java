@@ -11,4 +11,5 @@ import java.util.Map;
 public class PlacePreferenceResponse {
     private Long userProfileId;
     private Map<PlaceType, Float> preferences;
+
 }
