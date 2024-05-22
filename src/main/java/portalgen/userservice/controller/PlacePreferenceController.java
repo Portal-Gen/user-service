@@ -11,7 +11,7 @@ import portalgen.userservice.service.PlacePreferenceService;
 import java.util.Map;
 
 @RestController
-@RequestMapping(path = "/api/v1/place-preference")
+@RequestMapping(path = "/api/v1/place_preference")
 @RequiredArgsConstructor
 public class PlacePreferenceController {
     private final PlacePreferenceService placePreferenceService;
@@ -22,7 +22,7 @@ public class PlacePreferenceController {
         return new Response<>(placePreferenceService.setDefaultPlacePreference(userProfileId));
     }
 
-    @GetMapping("/{userProfileId}")
+    @GetMapping("/user/{userProfileId}")
     public Response<PlacePreferenceResponse> getPlacePreference(@PathVariable Long userProfileId) {
         return new Response<>(placePreferenceService.getPlacePreference(userProfileId));
     }
@@ -33,7 +33,7 @@ public class PlacePreferenceController {
     }
 
 
-    @GetMapping("/{userProfileId}/scores")
+    @GetMapping("/user/{userProfileId}/scores")
     public Response<Map<PlaceType, Float>> calculateUserPlacePreferenceScores(@PathVariable Long userProfileId) {
         return new Response<>(placePreferenceService.calculateUserPlacePreferenceScores(userProfileId));
     }

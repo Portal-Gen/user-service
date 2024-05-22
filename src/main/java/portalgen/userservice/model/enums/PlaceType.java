@@ -7,7 +7,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum PlaceType {
-    UNKNOWN(-1, "unknown"),
     AMUSEMENT_CENTER(0, "amusement_center"),
     AMUSEMENT_PARK(1, "amusement_park"),
     AQUARIUM(2, "aquarium"),
